@@ -185,6 +185,7 @@ jobs:
     name: MacOS
     runs-on: macos-latest
     needs: generate_matrix
+    container: ${{ matrix.container }}
     if: ${{ needs.generate_matrix.outputs.osx_matrix != '{}' && needs.generate_matrix.outputs.osx_matrix != '' }}
     strategy:
       matrix: ${{fromJson(needs.generate_matrix.outputs.osx_matrix)}}
