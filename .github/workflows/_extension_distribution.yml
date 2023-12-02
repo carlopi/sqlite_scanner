@@ -197,6 +197,11 @@ jobs:
       BUILD_SHELL: ${{ inputs.build_duckdb_shell && '1' || '0' }}
 
     steps:
+      - name: Setup docker (missing on MacOS)
+        if: runner.os == 'macos'
+        run: |
+          brew install docker
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
