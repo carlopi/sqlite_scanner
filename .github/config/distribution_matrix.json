@@ -15,11 +15,6 @@
         "duckdb_arch": "linux_arm64",
         "container": "ubuntu:18.04",
         "vcpkg_triplet": "arm64-linux"
-      },
-      {
-        "duckdb_arch": "linux_arm64_gcc4",
-        "container": "quay.io/pypa/manylinux2014_aarch64",
-        "vcpkg_triplet": "arm64-linux"
       }
     ]
   },
@@ -34,6 +29,11 @@
         "duckdb_arch": "osx_arm64",
         "osx_build_arch": "arm64",
         "vcpkg_triplet": "arm64-osx"
+      },
+      {
+        "duckdb_arch": "linux_arm64_gcc4",
+        "container": "quay.io/pypa/manylinux2014_aarch64",
+        "vcpkg_triplet": "arm64-linux"
       }
     ]
   },
