@@ -1,0 +1,15 @@
+diff --git a/Makefile b/Makefile
+index 9e16e73f6a..95a50ea11b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -276,6 +276,10 @@ clean:
+ clean-python:
+ 	tools/pythonpkg/clean.sh
+ 
++ifdef DUCKDB_PLATFORM_RTOOLS
++	CMAKE_VARS:=${CMAKE_VARS} -DDUCKDB_PLATFORM_RTOOLS=1
++endif
++
+ debug: ${EXTENSION_CONFIG_STEP}
+ 	mkdir -p ./build/debug && \
+ 	cd build/debug && \
