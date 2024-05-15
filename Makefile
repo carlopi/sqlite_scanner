@@ -71,7 +71,7 @@ debug:
 
 release:
 	mkdir -p build/release && \
-	cmake $(GENERATOR) $(FORCE_COLOR) $(CMAKE_VARS) $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Release ${BUILD_FLAGS} -S ./duckdb/ -B build/release && \
+	cmake $(GENERATOR) $(FORCE_COLOR) -DCMAKE_VARS=$(CMAKE_VARS) $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Release ${BUILD_FLAGS} -S ./duckdb/ -B build/release && \
 	cmake --build build/release --config Release
 
 data/db/tpch.db: release
