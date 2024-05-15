@@ -325,7 +325,6 @@ jobs:
           DUCKDB_CUSTOM_PLATFORM: ${{ matrix.duckdb_arch }}
           DUCKDB_PLATFORM_RTOOLS: 1
         run: |
-          cd duckdb && git apply ../rtools.patch && cd ..
           make test_release
 
       - uses: actions/upload-artifact@v2
