@@ -6,7 +6,7 @@ index 9e16e73f6a..c4053ee589 100644
  clean-python:
  	tools/pythonpkg/clean.sh
  
-+ifdef DUCKDB_PLATFORM_RTOOLS
++ifeq ($(DUCKDB_PLATFORM_RTOOLS),1)
 +	CMAKE_VARS:=${CMAKE_VARS} -DDUCKDB_PLATFORM_RTOOLS=1
 +	echo "CIAO"
 +endif
