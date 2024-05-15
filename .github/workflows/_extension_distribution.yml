@@ -323,7 +323,6 @@ jobs:
           VCPKG_OVERLAY_TRIPLETS: "${{ github.workspace }}/overlay_triplets"
           DUCKDB_PLATFORM: ${{ matrix.duckdb_arch }}
           DUCKDB_CUSTOM_PLATFORM: ${{ matrix.duckdb_arch }}
-          DUCKDB_PLATFORM_RTOOLS: 1
         run: |
           make test_release
 
