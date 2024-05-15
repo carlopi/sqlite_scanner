@@ -66,12 +66,12 @@ clean:
 # Main build
 debug:
 	mkdir -p  build/debug && \
-	$(PRE) cmake $(GENERATOR) $(FORCE_COLOR) $(CMAKE_VARS) $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Debug ${BUILD_FLAGS} -S ./duckdb/ -B build/debug && \
+	$(PRE) cmake $(GENERATOR) $(FORCE_COLOR) -DDUCKDB_PLATFORM_RTOOLS=1 $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Debug ${BUILD_FLAGS} -S ./duckdb/ -B build/debug && \
 	cmake --build build/debug --config Debug
 
 release:
 	mkdir -p build/release && \
-	$(PRE) cmake $(GENERATOR) $(FORCE_COLOR) -DCMAKE_VARS=$(CMAKE_VARS) $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Release ${BUILD_FLAGS} -S ./duckdb/ -B build/release && \
+	$(PRE) cmake $(GENERATOR) $(FORCE_COLOR) -DCMAKE_CXX_FLAGS="-DDUCKDB_PLATFORM_RTOOLS=1" $(EXTENSION_FLAGS) ${CLIENT_FLAGS} -DEXTENSION_STATIC_BUILD=1 -DCMAKE_BUILD_TYPE=Release ${BUILD_FLAGS} -S ./duckdb/ -B build/release && \
 	cmake --build build/release --config Release
 
 data/db/tpch.db: release
